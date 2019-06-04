@@ -1,0 +1,17 @@
+<div *ngIf="active" [ngClass]="{'preloader-active preloader-visible': active }"
+    dir="ltr">
+    <div class="preloader-container">
+        <div class="preloader-overlay"></div>
+        <div class="preloader-message-container" id="preloaderContainer" aria-live="assertive" aria-atomic="true">
+            <div class="preloader-message">
+                <div class="preloader--wrap">
+                    <div class="showbox">
+                        <div class="trl-l-loader__preloader">
+                            <div class="lds-ripple"><div></div><div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
