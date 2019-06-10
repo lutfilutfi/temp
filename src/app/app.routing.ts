@@ -2,8 +2,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from 'src/app/core/guards/auth-guard.service';
 import { UnauthorizedAccessComponent } from './core/unauthorized-access/unauthorized-access.component';
-import { GetFormComponent } from './main/get-form/get-form.component';
-import { MainComponent } from './main/main.component';
+// import { GetFormComponent } from './features/get-form/get-form.component';
+import { MainComponent } from './features/main/main.component';
+import { CreateJobComponent } from './features/create-job/create-job.component';
 
 const routes: Routes = [
     {
@@ -20,11 +21,14 @@ const routes: Routes = [
     },
     {
         path:'main',
-        component:MainComponent
-    
+        component:MainComponent,
+        children:[
+            { path: 'create-job', component: CreateJobComponent},
+        ]
 
     },
-   
+
+
 
     {
         path: 'unauthorized-access',

@@ -11,11 +11,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { HeaderComponentComponent } from './features/header-component/header-component.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS,HttpClient } from '@angular/common/http';
 import { CustomHttpInterceptor } from './core/interceptors/http.interceptor';
-import { MainComponent } from './main/main.component';
-import { GetFormComponent } from './main/get-form/get-form.component';
-
+import { MainComponent } from './features/main/main.component';
+import { CreateJobComponent } from './features/create-job/create-job.component';
+import {HttpModule} from '@angular/http';
+import { ServerServices } from './core/services/server.services';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
 };
@@ -25,9 +26,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         AppComponent,
         HeaderComponentComponent,
         MainComponent,
-        GetFormComponent,
+        // GetFormComponent,
+        CreateJobComponent
     ],
     imports: [
+        HttpModule,
         BrowserModule,
         Routing,
         CoreModule,
@@ -46,7 +49,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
             provide: HTTP_INTERCEPTORS,
             useClass: CustomHttpInterceptor,
             multi: true
-        }
+        },
+        ServerServices
     ],
     bootstrap: [AppComponent],
     entryComponents: []
