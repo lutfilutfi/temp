@@ -17,6 +17,7 @@ import { MainComponent } from './features/main/main.component';
 import { CreateJobComponent } from './features/create-job/create-job.component';
 import {HttpModule} from '@angular/http';
 import { ServerServices } from './core/services/server.services';
+import { LeaderBoardFilterPipe } from './core/pipes/leader-board-filter.pipe';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true
 };
@@ -27,6 +28,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         HeaderComponentComponent,
         MainComponent,
         // GetFormComponent,
+        LeaderBoardFilterPipe,
         CreateJobComponent
     ],
     imports: [
