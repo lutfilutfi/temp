@@ -12,7 +12,7 @@ export class CreateJobComponent implements OnInit {
   fal: number;
   desci: String;
   vac: vacancy;
-  buuu:any;
+  // buuu:any;
 
   constructor(private serverService: ServerServices) {
     this.fal = 0;
