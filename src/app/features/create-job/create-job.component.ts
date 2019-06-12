@@ -24,7 +24,7 @@ export class CreateJobComponent implements OnInit {
       (response: any) => {
         var t = JSON.parse(response._body);
         this.vac=new vacancy(t[0],t[1],t[2],t[3],t[4],t[5],t[6],t[7],t[8],t[9]);
-        console.log(this.vac);
+        // console.log(this.vac);
     },
     (error:any) => { console.log("Error", error) }
     )
@@ -37,7 +37,7 @@ export class CreateJobComponent implements OnInit {
       console.log('hey onSubmit')
       this.serverService.saveJobs(form)
         .subscribe(
-          (response: any) => { console.log(response._body) },
+          (response: any) => { console.log(response.body) },
           (error: any) => { console.log(error) }
         );
     }
