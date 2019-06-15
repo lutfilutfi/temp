@@ -1,13 +1,20 @@
-import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import {
+    Component, 
+    OnInit,
+    ComponentFactoryResolver,
+    ViewChild 
+} from '@angular/core';
 import {
     Router,
     RouteConfigLoadStart,
     RouteConfigLoadEnd
 } from '@angular/router';
+
 import { PreloaderService } from './shared/preloader/preloader.service';
 import { Constants } from 'src/app/app.config';
 import { AuthService } from 'src/app/core/services/auth-service.service';
 import { StartupService } from 'src/app/core/services/startup.service';
+import { CreateJobComponent } from './features/create-job/create-job.component';
 
 @Component({
     selector: 'crc-root',
@@ -15,6 +22,8 @@ import { StartupService } from 'src/app/core/services/startup.service';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+    @ViewChild(CreateJobComponent) child;
 
     constructor(
         private router: Router,

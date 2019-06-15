@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CustomHttpInterceptor } from '../interceptors/http.interceptor';
+import { vacancy } from 'src/app/shared/vacancy.model';
 
 // Access-Control-Allow-origin: *;
 // Vary : origin
@@ -17,31 +19,25 @@ import { HttpClient } from '@angular/common/http';
 //     buHead: String;
 //     hiringManager: String;
 //     band: String;
-    
+
 // }
 
 @Injectable()
 export class ServerServices {
 
-constructor ( private http: Http ) {}
+    constructor(private http: HttpClient, private provided: CustomHttpInterceptor) { }
 
-baseUrl = "http://localhost:3000";
 
-// saveJobs(data: NgForm){
-//     return this.http.post(this.baseUrl +'/addvacancy',data);
-// }
-// getJobs(){}
+    saveJobs(form : vacancy) {
+        console.log("saveJobs");
 
-saveJobs(form : NgForm){
-    console.log("saveJobs");
+        console.log(form);
+        return this.http.post("addVacancy", form);
+    }
 
-    // console.log(form.value);
-    return this.http.post(this.baseUrl +'/addvacancy', form);
-}
-
-getDefaults(){
-    console.log("getDefaults");
-    return this.http.get(this.baseUrl);
-}
+    getDefaults() {
+        console.log("getDefaults");
+        return this.http.get("");
+    }
 
 }
