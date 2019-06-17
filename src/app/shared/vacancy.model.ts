@@ -1,6 +1,6 @@
 export class vacancy{
     constructor(public buissnessUnit:String[], 
-        public primarySkills :String[], 
+        public primarySkills :object[], 
         public Experience: String[], 
         public vacancies: String[], 
         public buHead: String[], 

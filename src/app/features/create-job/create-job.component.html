@@ -65,51 +65,27 @@
           <div class="form-row">
             <div class="form-group col-md-12" #ps>
               <label for="ps">Primary Skills</label>
-              <!-- <input type="text"  > -->
-              <div class="form-row">
-                <div class="form-group col-md-12" #ps>
-                  <label for="ps">Primary Skills</label>
-                  <!-- <input type="text"> -->
-                  <div>
-                    <select id="primarySkills" 
-                            class="form-control" 
-                            type="text" 
-                            #in>
-                      <option *ngFor="let bu of vac?.primarySkills " 
-                              data-role="tagsinput" 
-                              class="bootstrap-tagsinput"
-                              (onselect)="addSkill()" 
-                              id="ps">
-                        <!-- <span class="tag label label-info"> -->
-                          <!-- <span type="text" value="" data-role="tagsinput" > -->
-                          {{ bu }}
-                          <!-- <span>
-                            <input type="reset" data-role="remove">
-                          </span>
-                        </span> -->
-                      </option>
-                    </select>
-                  </div>
-                  <!-- <div> -->
-                  <div *ngFor="let b of prSkills "
-                        data-role="tagsinput" 
-                        class="bootstrap-tagsinput" 
-                        id="ps">
-                    <span class="tag label label-info">
-                      <span type="text" value="" data-role="tagsinput" >
-                        {{ b }}
-                      </span>
-                      <span>
-                        <input type="reset" data-role="remove">
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <!-- <span type="text" data-role="tagsinput"> -->
+              <div>
+                <select id="primarySkills" class="form-control" (change)="onAddSkill()" type="text" #in>
+                  <option>Select</option>
+                  <option *ngFor="let bu of vac?.primarySkills " data-role="tagsinput" class="bootstrap-tagsinput"
+                    id="ps">
+                    {{ bu }}
+                  </option>
+                </select>
+              </div>
+              <div data-role="tagsinput" class="bootstrap-tagsinput" id="ps">
+                <span class="tag label label-info" *ngFor="let b of prSkills; let i = index">
+                  <span type="text" value="" data-role="tagsinput">
+                    {{ b }}
+                  </span>
+                  <span>
+                    <button type="reset" data-role="remove" (click)="onRemove(i)"></button>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
-          <!-- </div> -->
           <div class="form-row">
             <div class="form-group col-md-2">
               <label for="inputAddress3">Experience</label>
@@ -155,8 +131,8 @@
             <div class="form-group col-md-2">
               <label for="inputAddress2">Job Description</label>
               <input *ngIf="fal==0" type="button" class="form-control button-link" name="Add Link" value="Add Link"
-                id="" (click)="onClick(role)" #jd />
-              <input required type="text" *ngIf="fal==1">
+                id="" (click)="onClick(role)" required />
+              <input required type="url" *ngIf="fal==1" #jd>
             </div>
           </div>
           <div class="form-row">
