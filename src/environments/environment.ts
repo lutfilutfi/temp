@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  APIBasePath: 'http:/apibasepath/',
+  APIBasePath: 'http://localhost:8000/',
 };
 
 

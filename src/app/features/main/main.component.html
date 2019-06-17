@@ -41,8 +41,8 @@
       </a>
     </div>
   </header>
-  <experion-rms-get-form *ngIf="gf==1;else noServer" [(gff)]="gf" ></experion-rms-get-form>
-  <ng-template #noServer>
+  <!-- <experion-rms-get-form  *ngIf="gf==1;else noServer" [(gff)]="gf" ></experion-rms-get-form> -->
+  <!-- <ng-template #noServer> -->
   <section class="rms-c-list-content-section" >
     <div class="container-fluid">
       <div class="row">
@@ -51,7 +51,7 @@
             <div class="rms-panel-grid-header">
               <h3 class="rms-panel-grid-header__heading">Job List</h3>
               <div class="rms-panel-grid-header__options">
-                <button class="rms-c-btn rms-c-btn--primary" routerLink="/add-job" (click)="sub()">Create Job</button>
+                <button class="rms-c-btn rms-c-btn--primary" routerLink="/create-job" (click)="sub()">Create Job</button>
               </div>
             </div>
             <div class="rms-c-table table-responsive">
@@ -108,7 +108,7 @@
 
   <script src="js/vendor/jquery-1.11.2.min.js"></script>
   <script src="js/vendor/bootstrap.min.js"></script>
-</ng-template>
+<!-- </ng-template> -->
 </body>
 
 </html>
