@@ -5,10 +5,11 @@ export class vacancy{
         public band: String[],
         public location: String[], 
         public primarySkills :object[], 
-        public Experience: String[], 
-        public vacancies: String[], 
+        public Experience: number, 
+        public vacancies: number, 
         public hiringManager: String[], 
         public recruiter: String[],
-        public jobDescription : String[]
+        public jobDescription : String,
+        public endDate : Date
         ){} 
 }

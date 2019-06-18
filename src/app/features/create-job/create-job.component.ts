@@ -37,7 +37,7 @@ export class CreateJobComponent implements OnInit {
     this.fal = 0;
     this.desci = "Trial";
     this.ck = true;
-    this.validateForm();
+    // this.validateForm();
     // this.f=0;
     // this.vac.buissnessUnit=['BSS','PES','DTS'],
     // console.log(this.vac.buissnessUnit)
@@ -45,7 +45,7 @@ export class CreateJobComponent implements OnInit {
       .subscribe(
         (response: any) => {
           var t = response;
-          this.vac = new vacancy(t[0], t[1], t[2], t[3], t[4],null,null,null,null,null,null);
+          this.vac = new vacancy(t[0], t[1], t[2], t[3], t[4],null,null,null,null,null,null,null);
         },
         (error: any) => { console.log("Error", error) }
       )
@@ -72,7 +72,7 @@ export class CreateJobComponent implements OnInit {
       this.loc.nativeElement.value,
       this.rc.nativeElement.value,
       this.jd.nativeElement.value,
-      // this.
+      this.ed.nativeElement.value
     )
     // console.log(this.buuu.primarySkills);
     console.log(this.buuu);
@@ -92,11 +92,8 @@ export class CreateJobComponent implements OnInit {
     this.ck = true;
   }
 
-  validateForm() {
-    // if (this.form.touched) {
-      // return this.ck = false;
-    // }
-    
+  onClick(){
+    this.fal=1;
   }
 
   onAddSkill() {
