@@ -49,17 +49,23 @@
         </div>
       </section>
       <section class="exp-l-content">
-        <form style="width: 100%;" class="form-signin" #frm>
+        <form style="width: 100%;" class="form-signin" #frm="ngForm" [formGroup]="form">
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="inputState">Business Unit</label>
-              <select id="inputStateBU" class="form-control" required #bu>
+              <select id="inputStateBU" class="form-control"  #bu>
+                <option selected disabled >Select</option>
                 <option *ngFor="let bu of vac?.buissnessUnit ">{{ bu }}</option>
               </select>
             </div>
             <div class="form-group col-md-4">
               <label for="Role">Job Role</label>
-              <input type="text" class="form-control" required id="Role" placeholder="Role" #role />
+              <select type="text" class="form-control"  id="Role" placeholder="Role" #role >
+                  <option selected disabled >Select</option>
+                  <option *ngFor="let bu of vac?.jobRole ">
+                  {{ bu }}
+                </option>
+              </select>
             </div>
           </div>
           <div class="form-row">
@@ -67,14 +73,15 @@
               <label for="ps">Primary Skills</label>
               <div>
                 <select id="primarySkills" class="form-control" (change)="onAddSkill()" type="text" #in>
-                  <option>Select</option>
-                  <option *ngFor="let bu of vac?.primarySkills " data-role="tagsinput" class="bootstrap-tagsinput"
+                    <option selected disabled >Select</option>
+                    <!-- <option *ngFor="let bu of vac?.primarySkills " data-role="tagsinput" class="bootstrap-tagsinput"
                     id="ps">
                     {{ bu }}
-                  </option>
+                  </option> -->
+                  <option>isgaixg</option>
                 </select>
               </div>
-              <div data-role="tagsinput" class="bootstrap-tagsinput" id="ps">
+              <div  data-role="tagsinput" class="bootstrap-tagsinput" id="ps">
                 <span class="tag label label-info" *ngFor="let b of prSkills; let i = index">
                   <span type="text" value="" data-role="tagsinput">
                     {{ b }}
@@ -89,68 +96,74 @@
           <div class="form-row">
             <div class="form-group col-md-2">
               <label for="inputAddress3">Experience</label>
-              <select id="experience" class="form-control" required #exp>
-                <option *ngFor="let bu of vac?.Experience ">{{ bu }}</option>
-              </select>
+              <input id="experience" class="form-control"  #exp>
+                <!-- <option *ngFor="let bu of vac?.Experience ">{{ bu }}</option> -->
+              <!-- </select> -->
             </div>
             <div class="form-group col-md-4">
               <label for="inputAddress2">Location</label>
-              <input type="text" class="form-control" id="location" placeholder="Location" required #loc />
+              <select type="text" class="form-control" id="location" placeholder="Location"  #loc >
+                  <option selected disabled >Select</option>
+                  <option *ngFor="let bu of vac?.location ">
+                  {{ bu }}
+                </option>
+              </select>
             </div>
             <div class="form-group col-md-4">
               <label for="inputAddress2">End Date</label>
-              <input type="date" class="form-control" id="edate" required placeholder="Apartment, studio, or floor"
+              <input type="date" class="form-control" id="edate"  placeholder="Apartment, studio, or floor"
                 #ed />
             </div>
             <div class="form-group col-md-2">
               <label for="inputAddress2">Vacancies</label>
-              <select id="vacancy" class="form-control" required #vc>
-                <option *ngFor="let bu of vac?.vacancies ">{{ bu }}</option>
-              </select>
+              <input id="vacancy" class="form-control"  #vc>
+                <!-- <option *ngFor="let bu of vac?.vacancies ">{{ bu }}</option>
+              </select> -->
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="inputAddress3">BU Head</label>
-              <select id="bhead" class="form-control" required #bh>
-                <option *ngFor="let bu of vac?.buHead ">{{ bu }}</option>
+              <select id="bhead" class="form-control"  #bh>
+                  <option selected disabled >Select</option>
+                  <option *ngFor="let bu of vac?.buHead ">{{ bu }}</option>
               </select>
             </div>
             <div class="form-group col-md-4">
               <label for="inputAddress2">Hiring Manager</label>
-              <select id="HM" class="form-control" required #hm>
-                <option *ngFor="let bu of vac?.hiringManager ">{{ bu }}</option>
-              </select>
+              <input id="HM" class="form-control"  #hm>
+                <!-- <option *ngFor="let bu of vac?.hiringManager ">{{ bu }}</option>
+              </select> -->
             </div>
             <div class="form-group col-md-2">
               <label for="inputAddress2">Band</label>
-              <select id="bnd" class="form-control" required #bn>
-                <option *ngFor="let bu of vac?.band ">{{ bu }}</option>
+              <select id="bnd" class="form-control"  #bn>
+                  <option selected disabled >Select</option>
+                  <option *ngFor="let bu of vac?.band ">{{ bu }}</option>
               </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputAddress2">Job Description</label>
-              <input *ngIf="fal==0" type="button" class="form-control button-link" name="Add Link" value="Add Link"
-                id="" (click)="onClick(role)" required />
-              <input required type="url" *ngIf="fal==1" #jd>
+              <input *ngIf="fal==0" type="button" class="form-control button-link" name="Add Link" value="Add Link"/>
+              <input  type="url" *ngIf="fal==1" #jd>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="inputState">Recruiter</label>
-              <select id="recru" class="form-control" required #rc>
-                <option *ngFor="let bu of vac?.recruiter ">{{ bu }}</option>
-              </select>
+              <input id="recru" class="form-control"  #rc>
+                <!-- <option *ngFor="let bu of vac?.recruiter ">{{ bu }}</option>
+              </select> -->
             </div>
             <div class="col-md-8 align-self-end ">
               <div class="row justify-content-end">
                 <div class="form-group col-md-3">
                   <!-- <label for="inputZip">Zip</label> -->
-                  <input type="reset" class="btn btn-warning" value="Reset">
+                  <input type="reset" class="btn btn-warning" (click)="onReset()" value="Reset">
                 </div>
                 <div class="form-group col-md-3">
                   <!-- <label for="inputZip">Zip</label> -->
-                  <button type="button" class="btn erm-btn-primary" (click)="onSubmit()">Save</button>
+                  <button type="button" [disabled]="!form.valid" class="btn erm-btn-primary" (click)="onSubmit()">Save</button>
                 </div>
               </div>
             </div>
