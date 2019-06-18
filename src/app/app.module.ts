@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+// import { FormGroup } from "@angular/forms";
 import { Routing } from './app.routing';
 import { CoreModule } from 'src/app/core/core.module';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -33,7 +35,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ],
     imports: [
         HttpModule,
+        // FormGroup,
         BrowserModule,
+        FormsModule,
         Routing,
         CoreModule,
         PerfectScrollbarModule,
